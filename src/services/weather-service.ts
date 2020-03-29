@@ -4,7 +4,8 @@ const protocal = process.env.NODE_ENV === 'development' ?
     'http://' : 'https://'
 const baseUrl = 'dataservice.accuweather.com'
 
-const apiKey = ['zesKyrHstCFViYYdcBvs6qGiGXqSRtBY','yshriNQ4ofbFWVfw7shjrv0lml6Rnphi', 'WJ9kOJdwSpEsVz3E6l5ULWiPpX8JoJL0']
+const apiKey = ['zOcG096xQjfHLc4MQQUv4Y2AGi1xeFGF', 'zesKyrHstCFViYYdcBvs6qGiGXqSRtBY', 'yshriNQ4ofbFWVfw7shjrv0lml6Rnphi', 'WJ9kOJdwSpEsVz3E6l5ULWiPpX8JoJL0']
+
 const getWeatherForcast = async (cityId: string) => {
     const response = await axios.get(`${protocal}${baseUrl}/forecasts/v1/daily/5day/${cityId}?metric=true&apikey=${apiKey[0]}`)
     return response.data
