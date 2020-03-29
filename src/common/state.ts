@@ -45,7 +45,7 @@ export interface StoreState {
     autoCompleteLocations: City[]
     favorites: WeatherCondition[]
     theme: ThemeColors
-    unit:MeasureUnit
-    state:State
+    unit: MeasureUnit
+    state: State
 }
 

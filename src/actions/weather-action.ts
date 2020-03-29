@@ -72,6 +72,7 @@ export function getWeather(city: string) {
             return weather
         } catch (err) {
             console.log('Had issues getting games', err);
+            dispatch(setLoadingStage(State.Error))
         }
     };
 }
@@ -102,7 +103,8 @@ export const getCurrConditions = (city: string) => {
             dispatch(setLoadingStage(State.Done))
             return condition
         } catch (err) {
-            console.log('Had issues getting games', err);
+            console.log('Had issues getting conditions', err);
+            dispatch(setLoadingStage(State.Error))
         }
     };
 }
@@ -120,7 +122,8 @@ export const getFavorites = (favorites: City[]) => {
             dispatch(setLoadingStage(State.Done))
             return favorites
         } catch (err) {
-            console.log('Had issues getting games', err);
+            console.log('Had issues getting favorites', err);
+            dispatch(setLoadingStage(State.Error))
         }
     };
 }
@@ -131,7 +134,7 @@ export const toggleTheme = (theme: string) => {
             dispatch(setTheme(theme));
             return theme
         } catch (err) {
-            console.log('Had issues getting games', err);
+            console.log('Had issues toggling theme', err);
         }
     };
 }
@@ -142,7 +145,7 @@ export const toggleUnit = (unit: string) => {
             dispatch(setUnit(unit));
             return unit
         } catch (err) {
-            console.log('Had issues getting games', err);
+            console.log('Had issues toggling unit', err);
         }
     };
 }

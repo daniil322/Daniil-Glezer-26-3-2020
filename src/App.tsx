@@ -6,12 +6,15 @@ import history from './history';
 import { Router, Switch, Route } from 'react-router';
 import { StoreState } from './common/state';
 import { useSelector } from 'react-redux';
+import ErrorModal from './components/ErrorModal';
 
 const App = () => {
-   const theme = useSelector((state: StoreState) => state.theme)
+   const { theme, state } = useSelector((state: StoreState) => state)
    const currTheme = theme === 'light' ? '' : 'dark'
+
    return (
       <div className={`app-container ${currTheme}`}>
+         <ErrorModal state={state} />
          <Router history={history}>
             <NavBar />
             <Switch >

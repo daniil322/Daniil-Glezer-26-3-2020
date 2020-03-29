@@ -9,7 +9,7 @@ interface WeatherActions {
   currCondition: WeatherCondition
   theme: ThemeColors
   unit: MeasureUnit
-  state:State
+  state: State
 }
 
 enum ActionTypes {
@@ -25,7 +25,7 @@ enum ActionTypes {
 const INITIAL_STATE: StoreState = {
   autoCompleteLocations: [], weather: [],
   currCondition: {} as WeatherCondition, favorites: [],
-  theme: ThemeColors.Light, unit: MeasureUnit.C ,state:State.Init
+  theme: ThemeColors.Light, unit: MeasureUnit.C, state: State.Init
 };
 
 export default function weatherReducer(state = INITIAL_STATE, action: WeatherActions) {

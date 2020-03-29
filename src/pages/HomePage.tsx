@@ -28,9 +28,9 @@ const HomePage = () => {
 
     const getUserLocation = useCallback(async (pos: Position) => {
         const location = await WeatherService.getLocationByCords(pos)
-        if (!location.key) return
-        dispatch(getWeather(location.key))
-        dispatch(getCurrConditions(location.key))
+        if (!location.Key) return
+        dispatch(getWeather(location.Key))
+        dispatch(getCurrConditions(location.Key))
         setCurrCity({ name: location.LocalizedName, key: location.Key })
     }, [dispatch])
 

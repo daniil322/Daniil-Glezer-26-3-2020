@@ -16,5 +16,6 @@ export enum MeasureUnit {
 export enum State {
     Init = 'init',
     Loading = 'Loading',
-    Done = 'Done'
+    Done = 'Done',
+    Error = 'This site is for test purposes and the api key is finished please returm tomrrow to check out the site :)'
 }
