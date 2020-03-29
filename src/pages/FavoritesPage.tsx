@@ -23,7 +23,7 @@ const FavoritesPage = () => {
 
     return (
         <div>
-            {state === State.Init ? <div className='loader'></div> :
+            {state === State.Loading ? <div className='loader'></div> :
                 <FavoritesList updateFavorites={updateFavorites} favorites={favorites} />
             }
         </div>)

@@ -54,13 +54,13 @@ const HomePage = () => {
     }, [dispatch, key, city, getUserLocation])
     return (
         <div className='home-page-container'>
-           {state===State.Init? <div className='loader'></div>:
-            <div>
-                <LocationSearch setCurrCity={setCurrCity} updateFavorite={updateFavorite} />
-                <ConditionDetails city={currCity} />
-                <TimeBar updateFavorite={updateFavorite} city={currCity} isFavorite={isFavorite} />
-                <WeatherList />
-            </div>}
+            {state === State.Init ? <div className='loader'></div> :
+                <div>
+                    <LocationSearch setCurrCity={setCurrCity} updateFavorite={updateFavorite} />
+                    <ConditionDetails city={currCity} />
+                    <TimeBar updateFavorite={updateFavorite} city={currCity} isFavorite={isFavorite} />
+                    <WeatherList />
+                </div>}
         </div>
     )
 }

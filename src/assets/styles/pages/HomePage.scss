@@ -41,6 +41,9 @@
     color: #c4c9d7;
     font-size: 1.2rem;
     padding: 10px;
+    @include for-phone-layout {
+      margin-top: 15px;
+    }
     img {
       width: 30px;
       margin-left: 10px;
