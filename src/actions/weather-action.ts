@@ -80,15 +80,18 @@ export function getWeather(city: string) {
 export function getAutoCompleteLocation(city: string) {
     return async (dispatch: Dispatch) => {
         try {
+            dispatch(setLoadingStage(State.Loading))
             let locations: City[] = []
             if (city) {
                 const newLocations = await weatherService.getAutoComplete(city);
                 locations = utils.newAutoCompleteRequest(newLocations)
             }
             dispatch(setAutoComplete(locations));
+            dispatch(setLoadingStage(State.Done))
             return locations
         } catch (err) {
             console.log('Had issues getting games', err);
+            dispatch(setLoadingStage(State.Error))
         }
     };
 }
