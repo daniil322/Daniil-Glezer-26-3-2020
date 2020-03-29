@@ -1,24 +1,25 @@
 import { City } from "../common/state";
 
 const loadFromStorage = () => {
-    var val = localStorage.getItem('favorites')
-    return (val) ? JSON.parse(val) : [];
-}
+  var val = localStorage.getItem("favorites");
+  return val ? JSON.parse(val) : [];
+};
 
 const saveToStorage = (val: City) => {
-    const saveCitys = loadFromStorage()
-    localStorage['favorites'] = JSON.stringify([...saveCitys, val]);
-}
+  const savedCities = loadFromStorage();
+  localStorage.setItem("favorites", JSON.stringify([...savedCities, val]));
+};
+
 const removeFromStorage = (key: string) => {
-    let saveCitys = loadFromStorage()
-    saveCitys = saveCitys.filter((city: City) => {
-        return key !== city.key
-    })
-    localStorage['favorites'] = JSON.stringify(saveCitys);
-}
+  let savedCities = loadFromStorage();
+  savedCities = savedCities.filter((city: City) => {
+    return key !== city.key;
+  });
+  localStorage.setItem("favorites", JSON.stringify(savedCities));
+};
 
 export default {
-    loadFromStorage,
-    saveToStorage,
-    removeFromStorage
-}
+  loadFromStorage,
+  saveToStorage,
+  removeFromStorage
+};

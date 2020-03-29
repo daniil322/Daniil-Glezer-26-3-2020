@@ -1,34 +1,43 @@
-import { City, NewWeatherForcast, WeatherCondition, StoreState } from "../common/state";
-import { ThemeColors, MeasureUnit, State } from "../common/types";
+import {
+  City,
+  NewWeatherForcast,
+  WeatherCondition,
+  StoreState
+} from "../common/state";
+import { ThemeColors, MeasureUnit, AppState } from "../common/types";
 
 interface WeatherActions {
   weather: NewWeatherForcast[];
   type: ActionTypes;
-  currLocation: City[]
-  favorites: WeatherCondition[]
-  currCondition: WeatherCondition
-  theme: ThemeColors
-  unit: MeasureUnit
-  state: State
+  currLocation: City[];
+  favorites: WeatherCondition[];
+  currCondition: WeatherCondition;
+  theme: ThemeColors;
+  unit: MeasureUnit;
+  appState: AppState;
 }
 
 enum ActionTypes {
-  SetWeather = 'SET_WEATHER',
-  SetCurrCondition = 'SET_CURRCONDITION',
-  SetAutoCompleteLocation = 'SET_AUTOCOMPLETELOCATION',
-  SetFavorites = 'SET_FAVORITES',
-  SetTheme = 'SET_THEME',
-  SetUnit = 'SET_UNIT',
-  SetState = 'SET_STATE'
+  SetWeather = "SET_WEATHER",
+  SetCurrCondition = "SET_CURRCONDITION",
+  SetAutoCompleteLocation = "SET_AUTOCOMPLETELOCATION",
+  SetFavorites = "SET_FAVORITES",
+  SetTheme = "SET_THEME",
+  SetUnit = "SET_UNIT",
+  SetState = "SET_APPSTATE"
 }
 
 const INITIAL_STATE: StoreState = {
-  autoCompleteLocations: [], weather: [],
-  currCondition: {} as WeatherCondition, favorites: [],
-  theme: ThemeColors.Light, unit: MeasureUnit.C, state: State.Init
+  autoCompleteLocations: [],
+  weather: [],
+  currCondition: {} as WeatherCondition,
+  favorites: [],
+  theme: ThemeColors.Light,
+  unit: MeasureUnit.C,
+  appState: AppState.Init
 };
 
-export default function weatherReducer(state = INITIAL_STATE, action: WeatherActions) {
+const weatherReducer = (state = INITIAL_STATE, action: WeatherActions) => {
   switch (action.type) {
     case ActionTypes.SetWeather:
       return { ...state, weather: action.weather };
@@ -39,12 +48,14 @@ export default function weatherReducer(state = INITIAL_STATE, action: WeatherAct
     case ActionTypes.SetFavorites:
       return { ...state, favorites: action.favorites };
     case ActionTypes.SetTheme:
-      return { ...state, theme: action.theme }
+      return { ...state, theme: action.theme };
     case ActionTypes.SetUnit:
-      return { ...state, unit: action.unit }
+      return { ...state, unit: action.unit };
     case ActionTypes.SetState:
-      return { ...state, state: action.state }
+      return { ...state, appState: action.appState };
     default:
       return state;
   }
-}
+};
+
+export default weatherReducer;
