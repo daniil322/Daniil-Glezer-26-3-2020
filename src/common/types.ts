@@ -11,5 +11,10 @@ export enum ThemeColors {
 export enum MeasureUnit {
     C = 'C',
     F = 'F'
+}
 
+export enum State {
+    Init = 'init',
+    Loading = 'Loading',
+    Done = 'Done'
 }

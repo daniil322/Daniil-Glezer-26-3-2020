@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import LocationSearch from '../components/LocationSearch';
 import WeatherList from '../components/WeatherList';
 import ConditionDetails from '../components/ConditionDetails';
@@ -7,11 +7,15 @@ import TimeBar from '../components/TimeBar';
 import { getCurrConditions, getWeather } from '../actions/weather-action';
 import utils from '../services/utils';
 import WeatherService from '../services/weather-service';
+import { StoreState } from '../common/state';
+import { State } from '../common/types';
 
 const HomePage = () => {
     const [currCity, setCurrCity] = useState({ name: '', key: '' })
     const [isFavorite, setIsFavorite] = useState(false)
     const dispatch = useDispatch()
+    const { state } = useSelector((state: StoreState) => state);
+
 
     const updateFavorite = (key: string) => {
         const favorite = utils.checkCity(key)
@@ -24,6 +28,7 @@ const HomePage = () => {
 
     const getUserLocation = useCallback(async (pos: Position) => {
         const location = await WeatherService.getLocationByCords(pos)
+        if (!location.key) return
         dispatch(getWeather(location.key))
         dispatch(getCurrConditions(location.key))
         setCurrCity({ name: location.LocalizedName, key: location.Key })
@@ -47,15 +52,15 @@ const HomePage = () => {
             updateFavorite('215854')
         }
     }, [dispatch, key, city, getUserLocation])
-
     return (
         <div className='home-page-container'>
+           {state===State.Init? <div className='loader'></div>:
             <div>
                 <LocationSearch setCurrCity={setCurrCity} updateFavorite={updateFavorite} />
                 <ConditionDetails city={currCity} />
                 <TimeBar updateFavorite={updateFavorite} city={currCity} isFavorite={isFavorite} />
                 <WeatherList />
-            </div>
+            </div>}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { ThemeColors, MeasureUnit } from "./types";
+import { ThemeColors, MeasureUnit, State } from "./types";
 
 
 export interface City {
@@ -46,5 +46,6 @@ export interface StoreState {
     favorites: WeatherCondition[]
     theme: ThemeColors
     unit:MeasureUnit
+    state:State
 }
 

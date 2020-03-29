@@ -43,7 +43,7 @@ const NavBar = () => {
     }
 
     const navLinks = (darkTheme: string) => {
-        return <div className="flex nav-link-container">
+        return <div className="flex nav-link-container justify-center">
             <NavLink activeClassName={"active"} className={`nav-option ${darkTheme}`} to="/" exact>
                 Home
                    </NavLink>
@@ -64,13 +64,12 @@ const NavBar = () => {
             Light
 </div>
     }
-
     const isThemeChecked = theme === ThemeColors.Light;
     const isUnitChecked = unit === MeasureUnit.C;
     const darkTheme = theme === 'light' ? '' : ThemeColors.Dark
     return drawer ? (
         <div className="flex  nav-container">
-            <Drawer anchor={"right"} open={drawer} onClose={() => toggleDrawer()}>
+            <Drawer anchor={"right"} open={drawer} transitionDuration={10000} onClose={() => toggleDrawer()}>
                 <div className={`flex align-center nav-content ${theme === 'light' ? '' : 'dark'} text-center`}>
                     {navLinks(darkTheme)}
                     {unitSwitch(isUnitChecked)}

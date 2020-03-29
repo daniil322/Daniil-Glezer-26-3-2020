@@ -1,5 +1,5 @@
 import { City, NewWeatherForcast, WeatherCondition, StoreState } from "../common/state";
-import { ThemeColors, MeasureUnit } from "../common/types";
+import { ThemeColors, MeasureUnit, State } from "../common/types";
 
 interface WeatherActions {
   weather: NewWeatherForcast[];
@@ -9,6 +9,7 @@ interface WeatherActions {
   currCondition: WeatherCondition
   theme: ThemeColors
   unit: MeasureUnit
+  state:State
 }
 
 enum ActionTypes {
@@ -17,13 +18,14 @@ enum ActionTypes {
   SetAutoCompleteLocation = 'SET_AUTOCOMPLETELOCATION',
   SetFavorites = 'SET_FAVORITES',
   SetTheme = 'SET_THEME',
-  SetUnit = 'SET_UNIT'
+  SetUnit = 'SET_UNIT',
+  SetState = 'SET_STATE'
 }
 
 const INITIAL_STATE: StoreState = {
   autoCompleteLocations: [], weather: [],
   currCondition: {} as WeatherCondition, favorites: [],
-  theme: ThemeColors.Light, unit: MeasureUnit.C
+  theme: ThemeColors.Light, unit: MeasureUnit.C ,state:State.Init
 };
 
 export default function weatherReducer(state = INITIAL_STATE, action: WeatherActions) {
@@ -40,6 +42,8 @@ export default function weatherReducer(state = INITIAL_STATE, action: WeatherAct
       return { ...state, theme: action.theme }
     case ActionTypes.SetUnit:
       return { ...state, unit: action.unit }
+    case ActionTypes.SetState:
+      return { ...state, state: action.state }
     default:
       return state;
   }

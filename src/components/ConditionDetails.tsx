@@ -1,7 +1,7 @@
 import React from 'react'
 import { StoreState } from '../common/state';
 import utils from '../services/utils';
-import { City } from '../common/types';
+import { City, State } from '../common/types';
 import { useSelector } from 'react-redux';
 
 interface Props {
@@ -9,14 +9,16 @@ interface Props {
 }
 
 const ConditionDetails = ({ city }: Props) => {
-    const { currCondition, unit, } = useSelector((state: StoreState) => state)
+    const { currCondition, unit, state } = useSelector((state: StoreState) => state)
 
-    const temperatureValue = !(currCondition.temperature) ?'':unit === 'C' ?
+    const temperatureValue = !(currCondition.temperature) ? '' : unit === 'C' ?
         Math.floor(currCondition.temperature?.metric.value) :
         Math.floor(currCondition.temperature?.imperial.value)
+    const iconUrl = currCondition.weatherIcon ? utils.iconUrl(currCondition.weatherIcon) : ''
 
     return (
         <div className='flex column justify-center'>
+            {state === State.Loading ? <div className='loader' /> : ''}
             <div className='flex column justify-center curr-condition-container'>
                 <div className='flex justify-center weather-text'>
                     <p className='center-self'>
@@ -24,7 +26,7 @@ const ConditionDetails = ({ city }: Props) => {
                     </p>
                 </div>
                 <div className='flex justify-center curr-weather center-self '>
-                    <img src={utils.iconUrl(currCondition.weatherIcon)} alt="" />
+                    <img src={iconUrl} alt="" />
                     <p className='center-self '>
                         {`${temperatureValue} ${unit}`}
                     </p>
