@@ -1,0 +1,70 @@
+@font-face {
+  font-family: Quicksand;
+  src: url("../fonts/Quicksand/Quicksand-VariableFont_wght.ttf");
+}
+
+.flex {
+  display: flex;
+  &.column {
+    flex-direction: column;
+  }
+
+  &.space-around {
+    justify-content: space-around;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.flex-end {
+    justify-content: flex-end;
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.align-center {
+  align-items: center;
+}
+
+.center-self {
+  align-self: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.rtl {
+  direction: rtl;
+}
+.overflow-y {
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  height: 12px;
+  width: 14px;
+  z-index: 12;
+  overflow: visible;
+}
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #aaaebf;
+  border-radius: 8px;
+  z-index: 12;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  margin: 4px;
+  min-height: 32px;
+  min-width: 32px;
+}

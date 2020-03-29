@@ -1,0 +1,18 @@
+@import "./basics/helpers.scss";
+@import "./setup/mixins";
+@import "./pages/HomePage.scss";
+@import "./pages/FavoritesPage.scss";
+@import "./components/WeatherList.scss";
+@import "./components/NavBar.scss";
+
+body {
+  margin: 0;
+}
+
+.app-container {
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  &.dark {
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  }
+  height: 100vh;
+}

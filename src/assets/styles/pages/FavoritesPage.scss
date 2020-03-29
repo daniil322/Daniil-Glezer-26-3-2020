@@ -1,0 +1,19 @@
+.favorite-container {
+  width: 200px;
+  margin-top: 15px;
+  margin-left: 3px;
+  margin-right: 3px;
+  box-shadow: 0px 3px 10px #e3e3e3;
+  transition: 0.5s;
+  &.dark {
+    box-shadow: 0px 3px 10px #000000;
+    color: #c4c9d7;
+  }
+  @include for-phone-layout {
+    width: 150px;
+  }
+
+  .favorite-heart {
+    width: 30px;
+  }
+}

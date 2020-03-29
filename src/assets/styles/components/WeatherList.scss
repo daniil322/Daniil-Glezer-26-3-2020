@@ -1,0 +1,38 @@
+.forcasts-container {
+  background-color: white;
+  overflow-x: auto;
+  box-shadow: 0px 3px 10px #e3e3e3;
+  justify-content: center;
+  transition: 0.5s;
+
+  &.dark{
+    background-color: #1a1a1a;
+    box-shadow: 0px 3px 10px #000000;
+  }
+  @include for-phone-layout {
+    justify-content: start;
+  }
+  .forcast-container {
+    width: 16%;
+    box-shadow: 0px 3px 10px #e3e3e3;
+    margin-left: 3px;
+    padding: 7px;
+    transition: 0.5s;
+    .unit-value{
+      width: 35px;
+    }
+    &.dark{
+      background-color: #1a1a1a;
+      box-shadow: 0px 3px 10px #000000;
+      color: #c4c9d7;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    @include for-phone-layout {
+      width: auto;
+    }
+  }
+}

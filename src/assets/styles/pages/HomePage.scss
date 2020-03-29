@@ -1,0 +1,49 @@
+.home-page-container {
+  font-family: Quicksand;
+  background-size: cover;
+  .search-container {
+    margin-top: 15px;
+  }
+  .curr-condition-container {
+    width: 100%;
+    margin-top: 30px;
+
+    p {
+      font-size: 35px;
+      margin-bottom: 5px;
+    }
+    .curr-weather {
+      width: 100%;
+      p {
+        font-size: 50px;
+        margin: 0;
+        width: 150px;
+      }
+      img {
+        width: 150px;
+      }
+    }
+    .weather-text {
+      font-size: 40px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      @include for-phone-layout {
+        margin-bottom: 15px;
+        margin-top: 15px;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+  .current-date {
+    background-color: #485479;
+    color: #c4c9d7;
+    font-size: 1.2rem;
+    padding: 10px;
+    img {
+      width: 30px;
+      margin-left: 10px;
+    }
+  }
+}
