@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { StoreState } from '../common/state'
-import { City } from '../common/types'
+import { StoreState, City } from '../common/state'
 import FavoritePreview from './FavoritePreview'
 
 interface Props {

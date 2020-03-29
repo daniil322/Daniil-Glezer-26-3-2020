@@ -5,7 +5,7 @@
   justify-content: center;
   transition: 0.5s;
 
-  &.dark{
+  &.dark {
     background-color: #1a1a1a;
     box-shadow: 0px 3px 10px #000000;
   }
@@ -18,10 +18,10 @@
     margin-left: 3px;
     padding: 7px;
     transition: 0.5s;
-    .unit-value{
+    .unit-value {
       width: 35px;
     }
-    &.dark{
+    &.dark {
       background-color: #1a1a1a;
       box-shadow: 0px 3px 10px #000000;
       color: #c4c9d7;

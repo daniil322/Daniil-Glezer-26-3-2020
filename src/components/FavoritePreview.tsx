@@ -1,6 +1,5 @@
 import React from 'react'
 import { WeatherCondition } from '../common/state'
-import { City } from '../common/types'
 import { useHistory } from 'react-router';
 import utils from '../services/utils';
 import Card from '@material-ui/core/Card';
@@ -10,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import likedHeart from '../assets/imgs/heart.svg'
 import StorageService from '../services/storage-service';
 import { useSelector } from 'react-redux';
-import { StoreState } from '../common/state';
+import { StoreState, City } from '../common/state';
 
 interface Props {
     weather: WeatherCondition
@@ -21,7 +20,6 @@ interface Props {
 const FavoritePreview = ({ weather, favorite: { name, key }, updateFavorites }: Props) => {
     const history = useHistory();
     const { theme, unit } = useSelector((state: StoreState) => state)
-
 
     const showDetails = () => {
         history.push(`/?key=${key}&city=${name}`)

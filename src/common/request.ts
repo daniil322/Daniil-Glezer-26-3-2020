@@ -18,7 +18,6 @@ export interface RequestAutoCompleteLocation {
     AdministrativeArea: RequestAdministrativeArea;
 }
 
-
 export interface RequestTemperature {
     Value: number;
     Unit: string;

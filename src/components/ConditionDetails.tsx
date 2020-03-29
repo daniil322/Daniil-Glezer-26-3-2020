@@ -1,7 +1,7 @@
 import React from 'react'
 import { StoreState } from '../common/state';
 import utils from '../services/utils';
-import { City } from '../common/types';
+import { City } from '../common/state';
 import { useSelector } from 'react-redux';
 
 interface Props {

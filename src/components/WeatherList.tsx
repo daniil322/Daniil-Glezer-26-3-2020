@@ -7,6 +7,7 @@ const WeatherList = () => {
     const { weather, theme } = useSelector((state: StoreState) => state)
 
     const currTheme = theme === 'light' ? '' : 'dark'
+    
     return <div className={`flex forcasts-container ${currTheme}`}>
         {weather.map((forcast, i) => {
             return (

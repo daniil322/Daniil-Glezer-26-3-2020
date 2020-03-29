@@ -1,6 +1,5 @@
 import { ThemeColors, MeasureUnit, State } from "./types";
 
-
 export interface City {
     key: string
     name: string

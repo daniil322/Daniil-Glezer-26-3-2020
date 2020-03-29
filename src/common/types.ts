@@ -1,7 +1,3 @@
-export interface City {
-    key: string
-    name: string
-}
 
 export enum ThemeColors {
     Dark = 'dark',
@@ -11,6 +7,10 @@ export enum ThemeColors {
 export enum MeasureUnit {
     C = 'C',
     F = 'F'
+}
+
+export enum ScreenSize{
+    Phone=650
 }
 
 export enum State {

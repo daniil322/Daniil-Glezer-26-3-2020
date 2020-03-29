@@ -1,12 +1,5 @@
 /* Breakpoint mixins */
-$tablet-breakpoint: 800px;
 $phone-breakpoint: 650px;
-
-@mixin for-tablet-layout {
-  @media (max-width: $tablet-breakpoint) {
-    @content;
-  }
-}
 
 @mixin for-phone-layout {
   @media (max-width: $phone-breakpoint) {

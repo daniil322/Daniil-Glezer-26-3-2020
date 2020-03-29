@@ -4,7 +4,7 @@ import Switch from "@material-ui/core/Switch";
 import { useSelector, useDispatch } from "react-redux";
 import { StoreState } from "../common/state";
 import { toggleTheme, toggleUnit } from "../actions/weather-action";
-import { ThemeColors, MeasureUnit } from "../common/types";
+import { ThemeColors, MeasureUnit, ScreenSize } from "../common/types";
 import Drawer from "@material-ui/core/Drawer";
 
 const NavBar = () => {
@@ -69,7 +69,7 @@ const NavBar = () => {
     const darkTheme = theme === 'light' ? '' : ThemeColors.Dark
     return drawer ? (
         <div className="flex  nav-container">
-            <Drawer anchor={"right"} open={drawer} transitionDuration={10000} onClose={() => toggleDrawer()}>
+            <Drawer anchor={"right"} open={drawer} onClose={() => toggleDrawer()}>
                 <div className={`flex align-center nav-content ${theme === 'light' ? '' : 'dark'} text-center`}>
                     {navLinks(darkTheme)}
                     {unitSwitch(isUnitChecked)}
@@ -77,7 +77,7 @@ const NavBar = () => {
                 </div>
             </Drawer>
         </div>
-    ) : window.innerWidth > 650 ? (
+    ) : window.innerWidth > ScreenSize.Phone ? (
         <div className="flex  nav-container">
             <div className="flex align-center space-between nav-content">
                 {unitSwitch(isUnitChecked)}

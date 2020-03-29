@@ -1,4 +1,4 @@
-import { City } from "../common/types";
+import { City } from "../common/state";
 
 const loadFromStorage = () => {
     var val = localStorage.getItem('favorites')

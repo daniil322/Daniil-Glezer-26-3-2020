@@ -6,7 +6,7 @@ import storageService from '../services/storage-service';
 import utils from '../services/utils';
 import Snackbar from '@material-ui/core/Snackbar';
 import { useState } from 'react'
-import { City } from '../common/types';
+import { City } from '../common/state';
 
 interface Props {
     city: City;

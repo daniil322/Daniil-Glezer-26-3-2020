@@ -1,5 +1,5 @@
 import storageService from "./storage-service";
-import { City } from "../common/types";
+import { City } from "../common/state";
 import { useLocation } from "react-router";
 import { RequestWeatherCondition, RequestAutoCompleteLocation, RequestWeather } from "../common/request";
 
@@ -8,7 +8,7 @@ const getDateFormat = (time: number) => {
     if (time) {
         date.setDate(date.getDate() + time);
     }
-    return `${new Date(date).getDate()}/${new Date(date).getMonth()+1}`
+    return `${new Date(date).getDate()}/${new Date(date).getMonth() + 1}`
 }
 
 const checkCity = (key: string) => {
@@ -26,13 +26,13 @@ const iconUrl = (icon: number) => {
     return `https://developer.accuweather.com/sites/default/files/${icon < 10 ? `0${icon}` : icon}-s.png`
 }
 
-const newAutoCompleteRequest = (autoComplete: RequestAutoCompleteLocation[]) => {
+const AutoComplete = (autoComplete: RequestAutoCompleteLocation[]) => {
     return autoComplete.map((location) => {
         return { name: location.LocalizedName, key: location.Key }
     })
 }
 
-const newCityCondition = ({ Temperature: { Metric, Imperial }, WeatherText, WeatherIcon, EpochTime }: RequestWeatherCondition) => {
+const CityCondition = ({ Temperature: { Metric, Imperial }, WeatherText, WeatherIcon, EpochTime }: RequestWeatherCondition) => {
     return {
         temperature: {
             metric: { value: Metric.Value, unit: Metric.Unit },
@@ -43,7 +43,8 @@ const newCityCondition = ({ Temperature: { Metric, Imperial }, WeatherText, Weat
         epochTime: EpochTime
     }
 }
-const newWeatherForcast = ({ DailyForecasts }: RequestWeather) => {
+
+const WeatherForcast = ({ DailyForecasts }: RequestWeather) => {
     return DailyForecasts.map(({ Temperature: { Maximum, Minimum }, EpochDate, Day, Night }) => {
         return {
             temperature: {
@@ -61,4 +62,4 @@ const celsiusToFahrenheit = (c: number) => {
     return Math.floor(c * 9 / 5 + 32)
 }
 
-export default { celsiusToFareniht: celsiusToFahrenheit, getDateFormat, checkCity, useQuery, iconUrl, newAutoCompleteRequest, newCityCondition, newWeatherForcast }
+export default { celsiusToFareniht: celsiusToFahrenheit, getDateFormat, checkCity, useQuery, iconUrl, newAutoCompleteRequest: AutoComplete, newCityCondition: CityCondition, newWeatherForcast: WeatherForcast }
