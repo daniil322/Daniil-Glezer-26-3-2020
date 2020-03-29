@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const weatherApiUrl = 'http://dataservice.accuweather.com'
+const weatherApiUrl = process.env.NODE_ENV === 'development' ?
+    'http://dataservice.accuweather.com' : 'https://dataservice.accuweather.com'
 
 const getWeatherForcast = async (cityId: string) => {
     const response = await axios.get(`${weatherApiUrl}/forecasts/v1/daily/5day/${cityId}?metric=true&apikey=WJ9kOJdwSpEsVz3E6l5ULWiPpX8JoJL0&`)

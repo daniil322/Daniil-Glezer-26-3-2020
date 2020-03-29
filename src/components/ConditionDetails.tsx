@@ -11,7 +11,7 @@ interface Props {
 const ConditionDetails = ({ city }: Props) => {
     const { currCondition, unit, } = useSelector((state: StoreState) => state)
 
-    const temperatureValue = unit === 'C' ?
+    const temperatureValue = !(currCondition.temperature) ?'':unit === 'C' ?
         Math.floor(currCondition.temperature?.metric.value) :
         Math.floor(currCondition.temperature?.imperial.value)
 
