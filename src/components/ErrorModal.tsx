@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "@material-ui/core/Modal";
+import Snackbar from "@material-ui/core/Snackbar";
 import { AppState } from "../common/types";
 
 interface Props {
@@ -7,14 +7,14 @@ interface Props {
 }
 
 const ErrorModal = ({ state }: Props) => {
+  const isModalOpen = state === AppState.Error ? true : false;
+
   return (
-    <Modal
-      open={state === AppState.Error}
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
-    >
-      <div className="error-modal">{state}</div>
-    </Modal>
+    <Snackbar
+      autoHideDuration={1200}
+      open={isModalOpen}
+      message={AppState.Error}
+    />
   );
 };
 

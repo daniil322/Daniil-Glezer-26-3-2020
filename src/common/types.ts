@@ -16,5 +16,5 @@ export enum AppState {
   Init = "init",
   Loading = "Loading",
   Done = "Done",
-  Error = "This site is for test purposes and the api key is finished please returm tomrrow to check out the site :)"
+  Error = "API key reached the limit, Please Refresh"
 }

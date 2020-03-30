@@ -10,18 +10,6 @@ body {
   font-family: Quicksand;
 }
 
-.error-modal {
-  position: fixed;
-  top: 40%;
-  background: whitesmoke;
-  left: 30%;
-  width: 36%;
-  @include for-phone-layout {
-    left: 12%;
-    width: 69%;
-  }
-}
-
 .app-container {
   background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   &.dark {
